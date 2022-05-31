@@ -1,17 +1,23 @@
-version: "3.9"
-
+version: '3.9'
 services:
-  web:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: web_rasa
-    command: >
-      sh -c "rasa run"
-    volumes:
-      - .:/code
-
-    restart: on-failure
-    ports:
-      - "5005:5005"
+    rasa:
+      container_name: "rasa_server"
+      user: root
+      build: 
+        context:  .
+      volumes:
+      - "./:/app"
+      ports: 
+        - "5005:5005"
+        
+    action_server:
+      container_name: "action_server"
+      build: 
+        context: .
+        dockerfile: action.Dockerfile
+      volumes:
+        - ./actions:/app/actions
+        - ./data:/app/data
+      ports:
+        - 5055:5055
     

@@ -1,20 +1,17 @@
-FROM python:3.8-slim
+FROM rasa/rasa:3.0.0
 
-# set environment variables
-ENV PYTHONDONTWRITEBYTECODE=1
-ENV PYTHONUNBUFFERED=1
+WORKDIR '/app'
 
-WORKDIR /code
+COPY . /app
+USER root
 
-# install dependencies
-RUN apt update && \
-    apt install --no-install-recommends -y build-essential gcc g++  gfortran musl-dev ca-certificates && \
-    apt clean && rm -rf /var/lib/apt/lists/*
+# WORKDIR /app
+# COPY . /app
 
+COPY ./data /app/data
+#RUN  rasa train
+VOLUME /app
+VOLUME /app/data
+VOLUME /app/models
+CMD ["run","-m","/app/models","--enable-api","--cors","*","--debug" ,"--endpoints", "endpoints.yml", "--log-file", "out.log", "--debug"]
 
-# install dependencies
-COPY requirements.txt .
-RUN pip install -r requirements.txt
-#RUN pip install --no-cache-dir -r requirements.txt
-# copy project
-COPY . .

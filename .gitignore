@@ -5,6 +5,21 @@ __pycache__/
 
 #rasa
 .rasa
+### Rasa ###
+models
+results*
+train_test_split/
+.tensorboard*
+
+### Rasa X ###
+events.db
+events.db-shm
+events.db-wal
+rasa.db
+*.db*
+
+### Rasa visualize ###
+graph.html
 # C extensions
 *.so
 
