@@ -1,4 +1,5 @@
-FROM rasa/rasa-sdk:3.0.0
+FROM rasa/rasa-sdk:3.1.0
+
 WORKDIR /app
 COPY requirements.txt requirements.txt
 USER root

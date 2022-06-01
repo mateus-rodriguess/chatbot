@@ -1,17 +1,14 @@
-FROM rasa/rasa:3.0.0
+FROM rasa/rasa:3.1.0
 
-WORKDIR '/app'
-
-COPY . /app
 USER root
+WORKDIR /app
+COPY . .
 
-# WORKDIR /app
-# COPY . /app
+RUN rasa train
 
-COPY ./data /app/data
-#RUN  rasa train
-VOLUME /app
-VOLUME /app/data
-VOLUME /app/models
-CMD ["run","-m","/app/models","--enable-api","--cors","*","--debug" ,"--endpoints", "endpoints.yml", "--log-file", "out.log", "--debug"]
+RUN ["chmod", "+x", "/app/scripts/start_services.sh"]
+#RUN chmod +x /app/scripts/*
 
+ENTRYPOINT []
+
+CMD /app/scripts/start_services.sh
