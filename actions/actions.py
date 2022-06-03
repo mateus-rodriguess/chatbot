@@ -11,15 +11,19 @@ from typing import Any, Text, Dict, List
 #
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
-#
-#
+from actions.pln_request import request_pln
 class ActionHelloWorld(Action):
-#
+
     def name(self) -> Text:
        return "action_feed_back"
 
-    def run(self, dispatcher: CollectingDispatcher,
-        tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        
-        dispatcher.utter_message(text="Hello World! esta pronto")
+    def run(self, dispatcher: CollectingDispatcher,tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        data_message = {}
+        #message = tracker.latest_message['text']
+    
+
+        data_message["message"] = "i hate you"
+        data_message["user"] = "whatsapp"
+        request_pln(data_message)
+        dispatcher.utter_message(text="Obrigado pelo Feedback")
         return []

@@ -1,4 +1,5 @@
 version: '3.9'
+
 services:
     rasa:
       container_name: "rasa_server"
