@@ -9,6 +9,7 @@ services:
       - "./:/app"
       ports: 
         - "5005:5005"
+      restart: on-failure
         
     action_server:
       container_name: "action_server"
@@ -20,4 +21,4 @@ services:
         - ./data:/app/data
       ports:
         - 5055:5055
-    
+      restart: on-failure
