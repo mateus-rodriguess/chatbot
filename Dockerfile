@@ -1,13 +1,13 @@
-FROM rasa/rasa:3.1.0
+FROM rasa/rasa:3.1.1
 
 USER root
 WORKDIR /app
 COPY . .
 
-RUN rasa train
+#RUN rasa train
 
 RUN ["chmod", "+x", "/app/scripts/start_services.sh"]
-#RUN chmod +x /app/scripts/*
+
 
 ENTRYPOINT []
 

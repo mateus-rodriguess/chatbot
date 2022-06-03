@@ -89,3 +89,25 @@ nlu:
     - are you a human?
     - am I talking to a bot?
     - am I talking to a human?
+
+- intent: feed_back
+  examples: |
+    - Eu não conseguir enteder oque você quis dizer
+    - Eu não estou feliz com sua arrogancia
+    - Não estou endendendo, voçê ta falando tudo errado
+    - Explica melhor ai cara
+    - Entendi nada não
+    - Explica direito
+    - Não entendi 
+    - Oque? não entendi nada do que foi faldo 
+    - Isso não fez sentindo algom, isso que você falou 
+    - wft, que isso? não foi oque eu pergutei
+    - Explica de novo
+    - Explica direito 
+    - estou satisfeito com a sua resposta.
+    - Não entendi muito bem oque você quis dizer com isso
+    - A resposta foi otimo
+    - Não tem nada aver com oque eu pergutei mano
+    - eu nâo entendi bot
+    - eu estou otimo, era isso mesmo que eu queria saber
+    - esta otimo

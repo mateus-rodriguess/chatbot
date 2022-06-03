@@ -1,0 +1,1 @@
+rasa run -m app/ actions --cors "*" --debug
