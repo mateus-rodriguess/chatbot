@@ -19,10 +19,9 @@ class ActionHelloWorld(Action):
 
     def run(self, dispatcher: CollectingDispatcher,tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         data_message = {}
-        #message = tracker.latest_message['text']
-    
+        message = tracker.latest_message['text']
 
-        data_message["message"] = "i hate you"
+        data_message["message"] = message
         data_message["user"] = "whatsapp"
         request_pln(data_message)
         dispatcher.utter_message(text="Obrigado pelo Feedback")
